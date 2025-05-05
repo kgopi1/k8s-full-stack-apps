@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  database:
+    image: mongodb/mongodb-community-server
+    ports:
+      - "27017:27017"  # Assuming your FastAPI app runs on port 8000
