@@ -12,6 +12,9 @@ on:
         description: 'Dockerfile Image Path'
         required: true
         default: 'backend'
+defaults:
+  run:
+    working-directory: ./${{ github.event.inputs.imagePath }}
 
 
 jobs:
@@ -36,7 +39,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-        context: .
+        context: ./${{inputs.imagePath}}
         file: ${{inputs.imagePath}}/Dockerfile
         push: true
         tags: |
