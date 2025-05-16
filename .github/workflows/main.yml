@@ -35,6 +35,7 @@ jobs:
       run: |
         echo ${{ github.event.inputs.imagePath }}
         ls -la ${{ github.event.inputs.imagePath }}
+        echo $(date)
 
     - name: Build and push
       uses: docker/build-push-action@v6
@@ -43,4 +44,6 @@ jobs:
         file: ${{inputs.imagePath}}/Dockerfile
         push: true
         tags: |
-          kgopi1/backend:latest
+          ${{ secrets.DOCKER_USER_NAME }}/${{inputs.imagePath}}:latest
+          ${{ secrets.DOCKER_USER_NAME }}/${{inputs.imagePath}}:$(date +%Y-%m-%d)
+
