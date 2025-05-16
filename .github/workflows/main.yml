@@ -43,4 +43,4 @@ jobs:
         file: ${{inputs.imagePath}}/Dockerfile
         push: true
         tags: |
-          backend:latest
+          kgopi/backend:latest
