@@ -12,9 +12,9 @@ on:
         description: 'Dockerfile Image Path'
         required: true
         default: 'backend'
-defaults:
-  run:
-    working-directory: ./${{ github.event.inputs.imagePath }}
+# defaults:
+#   run:
+#     working-directory: ./${{ github.event.inputs.imagePath }}
 
 
 jobs:
