@@ -6,4 +6,4 @@ ENV API_IP='127.0.0.1'
 ENV API_PORT='5000'
 RUN npm install
 CMD ["node", "server.js"]
-LABEL=k8s-full-stack-apps
+LABEL repo=k8s-full-stack-apps
