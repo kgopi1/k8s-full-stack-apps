@@ -1,12 +1,20 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from pymongo import MongoClient
 from bson import ObjectId
 import os
 
 app = Flask(__name__)
+CORS(app)
+
+MONGODBHOST=os.environ['MONGODBHOST']
+MONGODBUSER=os.environ['MONGODBUSER']
+MONGODBPASS=os.environ['MONGODBPASS']
 
 # MongoDB Connection
-client = MongoClient("mongodb://localhost:27017/")  # or use Atlas URI
+client = MongoClient(f"mongodb://{MONGODBUSER}:{MONGODBPASS}@{MONGODBHOST}:27017/")  # or use Atlas URI 
+
+#MONGODB_CONNSTRING=mongodb+srv://username:password@clusterURL
 db = client.todo_db
 todos = db.todos
 
@@ -46,4 +54,5 @@ def delete_todo(id):
     return jsonify({"message": "Todo deleted"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
