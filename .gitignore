@@ -1,1 +1,10 @@
 .venv
+__pycache__
+helloapp.py
+node_modules/
+.envrc
+*.tgz
+playground-1.mongodb.js
+data
+.env
+*/playground-1.mongodb.js

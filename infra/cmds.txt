@@ -1,0 +1,5 @@
+docker compose up -d 
+docker compose logs database
+docker compose logs backend 
+docker compose build backend
+rename env.txt to .env and pass the env variables values. 
