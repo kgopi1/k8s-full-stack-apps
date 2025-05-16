@@ -1,0 +1,21 @@
+name: Backend Docker Image CI
+
+on:
+  # push:
+  #   branches: 
+  #     - github-actions 
+  # pull_request:
+  #   branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      imagePath:
+        description: 'Dockerfile Image Path'
+        required: true
+        default: 'backend'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
